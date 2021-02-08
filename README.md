@@ -35,3 +35,13 @@
       - Projeto do tipo ****ASP.NET Core 5.0 Web App (MVC)**
       - Não foi dado muito foco nesse projeto, criado para as chamadas da API
  
+# COMPILAR, RODAR E TESTAR A APLICAÇÃO
+- Faça do download do código desse [repositório](https://github.com/luisfernandoferracin/TR).
+- Abra a **SolutionAPI.sln** no visual studio.
+- Em **Package Manager Console** digite os seguintes comandos apontado para o projeto **Data**:
+  - EntityFrameworkCore\Add-Migration InitialCreate -Verbose -Context MyDbContext
+  - Script-Migration -Context MyDbContext (Se quiser criar um script)
+  - Update-Database -Context MyDbContext
+- Compile o projeto e rode.
+- A API será aberta no Swagger, e pode ser testada pelo mesmo.
+- Para rodar através da interface, abra a **SolutionWeb.sln** compile e rode mantendo o projeto da API rodando.
