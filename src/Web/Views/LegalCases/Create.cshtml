@@ -1,0 +1,51 @@
+﻿@model Web.ViewModels.CaseViewModel
+
+@{
+    ViewData["Title"] = "New Legal Case";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create">
+
+            <vc:Summary></vc:Summary>
+
+            <div class="form-group">
+                <label asp-for="CaseNumber" class="control-label"></label>
+                <input asp-for="CaseNumber" class="form-control" />
+                <span asp-validation-for="CaseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourtName" class="control-label"></label>
+                <input asp-for="CourtName" class="form-control" />
+                <span asp-validation-for="CourtName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameResponsible" class="control-label"></label>
+                <input asp-for="NameResponsible" class="form-control" />
+                <span asp-validation-for="NameResponsible" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="RegistrationDate" class="control-label"></label>
+                <input asp-for="RegistrationDate" class="form-control" />
+                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+            </div>*@
+
+            <hr />
+
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" />
+                <a class="btn btn-info" asp-action="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

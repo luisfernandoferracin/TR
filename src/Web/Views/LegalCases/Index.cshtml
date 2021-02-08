@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Web.ViewModels.CaseViewModel>
+
+@{
+    ViewData["Title"] = "List Legal Cases";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a class="btn btn-info" asp-action="Create">New Legal Case</a>
+<hr />
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CaseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourtName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameResponsible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourtName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameResponsible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+
+            <td class="text-right">
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.CaseNumber"><spam class="fa fa-search"></spam></a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CaseNumber"><spam class="fa fa-pencil-alt"></spam></a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CaseNumber"><spam class="fa fa-trash"></spam></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

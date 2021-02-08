@@ -1,0 +1,47 @@
+﻿@using Web.Extensions
+@model Web.ViewModels.CaseViewModel
+
+@{
+    ViewData["Title"] = "Delete Legal Case";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<vc:Summary></vc:Summary>
+
+<div>
+    <h4>This action will be permanent!</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CaseNumber)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CaseNumber)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CourtName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CourtName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.NameResponsible)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.NameResponsible)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CaseNumber" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-info" asp-action="Index">Back</a>
+    </form>
+</div>
